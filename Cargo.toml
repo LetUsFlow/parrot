@@ -39,3 +39,7 @@ features = [
 [dependencies.tokio]
 version = "1.17.0"
 features = ["macros", "rt-multi-thread"]
+
+[patch.crates-io]
+# Patched, because rspotify still uses an old version of chrono of which a dependency won't compile in future versions of rust
+rspotify = { git = "https://github.com/LetUsFlow/rspotify.git" }

@@ -4,30 +4,30 @@ version = "1.6.0"
 authors = ["aquelemiguel"]
 edition = "2018"
 description = "A Discord music bot built in Rust"
-repository = "https://github.com/aquelemiguel/parrot"
+repository = "https://github.com/letusflow/parrot"
 license = "MIT"
 keywords = ["discord", "music-bot", "rust"]
 
 [dependencies]
-dotenv = "0.15.0"
-lazy_static = "1.4.0"
-rand = "0.8.5"
-regex = "1.5.5"
-serde_json = "1.0.79"
-url = "2.3.1"
-serde = "1.0.152"
+dotenvy = "0.15"
+lazy_static = "1.4"
+rand = "0.8"
+regex = "1.7"
+serde_json = "1.0"
+url = "2.3"
+serde = "1.0"
 
 [dependencies.rspotify]
-version = "0.11.6"
+version = "0.11"
 default-features = false
 features = ["client-reqwest", "reqwest-rustls-tls"]
 
 [dependencies.songbird]
-version = "0.3.2"
+version = "0.3"
 features = ["builtin-queue", "yt-dlp"]
 
 [dependencies.serenity]
-version = "0.11.5"
+version = "0.11"
 default-features = false
 features = [
   "cache",
@@ -41,9 +41,9 @@ features = [
 ]
 
 [dependencies.tokio]
-version = "1.17.0"
+version = "1.27"
 features = ["macros", "rt-multi-thread"]
 
 [patch.crates-io]
-# Patched, because rspotify still uses an old version of chrono of which a dependency won't compile in future versions of rust
-rspotify = { git = "https://github.com/LetUsFlow/rspotify.git" }
+# Patched, because the lastest version of rspotify still uses an old feature of chrono of which a dependency won't compile in future versions of rust
+rspotify = { git = "https://github.com/ramsayleung/rspotify", rev = "e6e0ce5" }

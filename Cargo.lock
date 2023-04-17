@@ -363,10 +363,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "dotenv"
-version = "0.15.0"
+name = "dotenvy"
+version = "0.15.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
+checksum = "1aaf95b3e5c8f23aa320147307562d361db0ae0d51242340f558153b4eb2439b"
 
 [[package]]
 name = "either"
@@ -972,7 +972,7 @@ dependencies = [
 name = "parrot"
 version = "1.6.0"
 dependencies = [
- "dotenv",
+ "dotenvy",
  "lazy_static",
  "rand",
  "regex",
@@ -1217,7 +1217,7 @@ dependencies = [
 [[package]]
 name = "rspotify"
 version = "0.11.6"
-source = "git+https://github.com/LetUsFlow/rspotify.git#9f7c32aed57de498bd2e8c14542229a9adb29291"
+source = "git+https://github.com/ramsayleung/rspotify?rev=e6e0ce5#e6e0ce5b8ebf726e8cc4f0f270880f3c913f8f2c"
 dependencies = [
  "async-stream",
  "async-trait",
@@ -1240,7 +1240,7 @@ dependencies = [
 [[package]]
 name = "rspotify-http"
 version = "0.11.6"
-source = "git+https://github.com/LetUsFlow/rspotify.git#9f7c32aed57de498bd2e8c14542229a9adb29291"
+source = "git+https://github.com/ramsayleung/rspotify?rev=e6e0ce5#e6e0ce5b8ebf726e8cc4f0f270880f3c913f8f2c"
 dependencies = [
  "async-trait",
  "log",
@@ -1253,12 +1253,12 @@ dependencies = [
 [[package]]
 name = "rspotify-macros"
 version = "0.11.6"
-source = "git+https://github.com/LetUsFlow/rspotify.git#9f7c32aed57de498bd2e8c14542229a9adb29291"
+source = "git+https://github.com/ramsayleung/rspotify?rev=e6e0ce5#e6e0ce5b8ebf726e8cc4f0f270880f3c913f8f2c"
 
 [[package]]
 name = "rspotify-model"
 version = "0.11.6"
-source = "git+https://github.com/LetUsFlow/rspotify.git#9f7c32aed57de498bd2e8c14542229a9adb29291"
+source = "git+https://github.com/ramsayleung/rspotify?rev=e6e0ce5#e6e0ce5b8ebf726e8cc4f0f270880f3c913f8f2c"
 dependencies = [
  "chrono",
  "enum_dispatch",

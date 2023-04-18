@@ -22,4 +22,6 @@ COPY --from=builder /yt-dlp /bin/
 
 RUN apt-get update && apt-get install -y python3
 
+USER 1000
+
 CMD ["parrot"]

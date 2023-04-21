@@ -13,11 +13,21 @@ RUN cargo build --release && \
     chmod +x /yt-dlp
 
 
+FROM alpine:3 AS compressor
+
+COPY --from=mwader/static-ffmpeg:6.0 /ffmpeg /ffmpeg
+COPY --from=builder  /app/target/release/parrot /parrot
+
+RUN apk add upx wget && \
+    upx --lzma --best /parrot && \
+    upx -1 /ffmpeg
+
+
 # Release image
 FROM debian:bullseye-slim
 
-COPY --from=mwader/static-ffmpeg:6.0 /ffmpeg /bin/
-COPY --from=builder /app/target/release/parrot /bin/
+COPY --from=compressor /ffmpeg /bin/
+COPY --from=compressor /parrot /bin/
 COPY --from=builder /yt-dlp /bin/
 
 RUN apt-get update && apt-get install -y python3

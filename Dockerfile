@@ -15,7 +15,7 @@ RUN cargo build --release && \
 
 FROM alpine:3 AS compressor
 
-COPY --from=mwader/static-ffmpeg:6.0 /ffmpeg /ffmpeg
+COPY --from=ghcr.io/ffbuilds/static-ffmpeg-minimal-alpine_edge:main /ffmpeg /ffmpeg
 COPY --from=builder  /app/target/release/parrot /parrot
 
 RUN apk add upx wget && \
@@ -26,12 +26,15 @@ RUN apk add upx wget && \
 # Release image
 FROM debian:bullseye-slim
 
+RUN useradd -ms /bin/bash parrot
+WORKDIR /home/parrot
+
 COPY --from=compressor /ffmpeg /bin/
 COPY --from=compressor /parrot /bin/
 COPY --from=builder /yt-dlp /bin/
 
 RUN apt-get update && apt-get install -y python3
 
-USER 1000
+USER parrot
 
 CMD ["parrot"]
